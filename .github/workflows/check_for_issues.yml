@@ -16,8 +16,7 @@ jobs:
           python-version: 3.8 #install the python needed
       - name: execute py script # run the run.py to get the latest data
         run: |
-          pip install requests
-          pip install tweepy
+          pip install requirements.txt
           python main.py
         env:
           TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
