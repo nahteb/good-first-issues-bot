@@ -23,7 +23,7 @@ def authenticate_twitter():
 
 
 def get_matching_issues():
-    time = datetime.datetime.now() - datetime.timedelta(minutes=5)
+    time = datetime.datetime.now() - datetime.timedelta(minutes=10)
     response = requests.get(f'https://api.github.com/search/issues?q={REPOS} label:"Good first issue" is:open '
                             f'{time}')
     data = response.json()
