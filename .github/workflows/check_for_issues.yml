@@ -1,7 +1,7 @@
 name: check_for_issues
 on:
   schedule:
-      - cron: '*/10 * * * *' # runs every 10 minutes
+    - cron:  '*/5 * * * *'
 
 jobs:
   build:
