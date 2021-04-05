@@ -13,7 +13,7 @@ REPOS = 'repo:symfony/symfony repo:opsdroid/opsdroid repo:arduosoft/RawCMS repo:
         'repo:openstreetmap/iD repo:Leaflet/Leaflet repo:eslint/eslint repo:webpack/webpack repo:TryGhost/Ghost ' \
         'repo:vercel/hyper repo:serverless/serverless repo:facebook/react repo:facebook/react-native ' \
         'repo:yarnpkg/yarn repo:vercel/next.js repo:keystonejs/keystone repo:Semantic-Org/Semantic-UI-React ' \
-        'repo:electron/electron '
+        'repo:electron/electron'
 
 
 def authenticate_twitter():
@@ -33,7 +33,7 @@ def authenticate_twitter():
 
 
 def get_matching_issues():
-    time = datetime.datetime.now() - datetime.timedelta(minutes=5)
+    time = datetime.datetime.now() - datetime.timedelta(minutes=45)
     response = requests.get(f'https://api.github.com/search/issues?q={REPOS} label:"Good first issue" is:open '
                             f'{time}')
     data = response.json()
