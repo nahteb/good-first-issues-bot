@@ -3,7 +3,17 @@ import requests
 import tweepy
 from os import environ
 
-REPOS = 'repo:symfony/symfony repo:opsdroid/opsdroid'
+REPOS = 'repo:symfony/symfony repo:opsdroid/opsdroid repo:arduosoft/RawCMS repo:neovim/neovim repo:Marusyk/grok.net ' \
+        'repo:unoplatform/uno repo:electron/electron repo:projectM-visualizer/projectm repo:yugabyte/yugabyte-db ' \
+        'repo:LightTable/LightTable repo:sButtons/sbuttons repo:cockroachdb/cockroach repo:helm/helm ' \
+        'repo:kubernetes/kubernetes repo:hashicorp/terraform repo:pingcap/tidb repo:bitfield/script ' \
+        'repo:friendsofgo/killgrave repo:strongbox/strongbox repo:elastic/elasticsearch repo:JabRef/jabref ' \
+        'repo:commons-app/apps-android-commons repo:authorjapps/zerocode repo:sirixdb/sirix repo:sirixdb/sirix ' \
+        'repo:Swati4star/Images-to-PDF repo:trinodb/trino repo:appsmithorg/appsmith repo:osmlab/name-suggestion-index ' \
+        'repo:openstreetmap/iD repo:Leaflet/Leaflet repo:eslint/eslint repo:webpack/webpack repo:TryGhost/Ghost ' \
+        'repo:vercel/hyper repo:serverless/serverless repo:facebook/react repo:facebook/react-native ' \
+        'repo:yarnpkg/yarn repo:vercel/next.js repo:keystonejs/keystone repo:Semantic-Org/Semantic-UI-React ' \
+        'repo:electron/electron '
 
 
 def authenticate_twitter():
