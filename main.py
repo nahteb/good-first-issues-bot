@@ -34,8 +34,8 @@ def authenticate_twitter():
 
 def get_matching_issues():
     time = datetime.datetime.now() - datetime.timedelta(minutes=45)
-    response = requests.get(f'https://api.github.com/search/issues?q={REPOS} label:"Good first issue" is:open '
-                            f'{time}')
+    date = time.date()
+    response = requests.get(f'https://api.github.com/search/issues?q={REPOS} created:>{date} label:"Good first issue"')
     data = response.json()
     return data['items']
 
@@ -43,7 +43,24 @@ def get_matching_issues():
 def tweet_matching_issues(issues):
     for issue in issues:
         url = issue['html_url']
-        api.update_status(f'A new beginner friendly #openSource issue is ready for you! {url}')
+        language = get_repo_language(issue)
+        if language is None:
+            api.update_status(f'A new beginner friendly #openSource issue is ready for you! {url}')
+        else:
+            api.update_status(f'Want to learn #{language}? A new beginner friendly #openSource issue is ready for you! {url}')
+
+
+def get_repo_language(issue):
+    github_api_token = environ['API_TOKEN']
+    repository_url = issue['repository_url']
+    languages_url = f'{repository_url}/languages'
+    languages = requests.get(languages_url, headers={'Authorization': f'token {github_api_token}'})
+    data = languages.json()
+    if len(data) < 1:
+        return None
+    else:
+        language = list(data.keys())[0]
+        return language
 
 
 if __name__ == '__main__':
