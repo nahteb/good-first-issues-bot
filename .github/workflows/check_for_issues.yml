@@ -1,7 +1,7 @@
 name: check_for_issues
 on:
   schedule:
-    - cron:  '0 17 * * *'
+    - cron:  '0 16 * * *'
 
 jobs:
   build:
@@ -24,4 +24,4 @@ jobs:
           TWITTER_API_SECRET_KEY: ${{ secrets.TWITTER_API_SECRET_KEY }}
           TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-          API_KEY: ${{ secrets.API_KEY }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
