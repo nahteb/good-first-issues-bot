@@ -28,7 +28,7 @@ def get_repos():
 
 
 def get_matching_issues():
-    time = datetime.datetime.now() - datetime.timedelta(hours=24)
+    time = datetime.datetime.now() - datetime.timedelta(hours=48)
     date = time.date()
     repos = get_repos()
     response = requests.get(f'https://api.github.com/search/issues?q={repos} created:>{date} label:"Good first issue"')
